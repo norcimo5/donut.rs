@@ -12,7 +12,7 @@ fn rotate(mul:i32 , shift:i32 , x: &mut i32, y: &mut i32) {
 
 fn main() {
     let mut b = [32u8; 1760];  // text buffer
-    let mut z = [127u8; 1760];  // z buffer
+    let mut z = [127i8; 1760];  // z buffer
     let (mut sa, mut ca) = (1024, 0);
     let (mut sb, mut cb) = (1024, 0);
 
@@ -39,7 +39,7 @@ fn main() {
                 let o:usize  = x as usize  + 80 * y as usize;
                 let zz = (x6 - k2) >> 15;
                 if y > 0 && y < 22 && x > 0 && x < 80 && zz < z[o] as i32 {
-                    z[o] = zz as u8;
+                    z[o] = zz as i8;
                     b[o] = [ 46, 44, 45, 126, 58, 59, 61, 33, 42, 35, 36, 64, ][if n > 0 { n as usize } else { 0 }];
                 }
 
